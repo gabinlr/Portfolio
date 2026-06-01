@@ -874,3 +874,130 @@ a[href="robotholonome.html"].card-btn::after {
     padding: 15px;
     box-sizing: border-box;
 }
+
+/* ===================================================
+   BANNIÈRE DU ROBOT MINI-SUMO : ASYMÉTRIQUE ET ZOOMÉE
+   =================================================== */
+.about-banner.sumo-banner-bg {
+    position: relative;
+    background-color: #0a0814;
+    overflow: hidden;
+    padding: 90px 0;
+    text-align: left; /* On aligne le texte à gauche pour libérer le robot */
+}
+
+/* Alignement du conteneur de texte à gauche */
+.about-banner.sumo-banner-bg .container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.about-banner.sumo-banner-bg .banner-text {
+    margin: 0;
+    padding: 0;
+    max-width: 52%; /* Le texte occupe la moitié gauche de l'écran */
+}
+
+/* 1. L'arrière-plan étalé et flouté (inchangé, habille toute la bannière) */
+.about-banner.sumo-banner-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('img/robotsumo.jpg');
+    background-size: cover;
+    background-position: center 45%;
+    filter: blur(18px) brightness(0.35);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+/* 2. L'image centrale NETTE, DÉCALÉE À DROITE ET ULTRA ZOOMÉE */
+.about-banner.sumo-banner-bg::after {
+    content: "";
+    position: absolute;
+    top: 0; 
+    bottom: 0; 
+    right: 10%; /* Décalé sur le côté droit */
+    width: 38%;
+    max-width: 420px;
+    background-image: url('img/robotsumo.jpg');
+    /* ZOOM CHIRURGICAL (160%) : On grossit le robot pour éliminer l'arrière-plan de la pièce */
+    background-size: 140%; 
+    /* CADRAGE VERTICAL (20%) : On remonte la photo pour masquer la table en bas */
+    background-position: center 30%; 
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+/* Version Mobile : On recentre tout proprement en colonne */
+@media (max-width: 768px) {
+    .about-banner.sumo-banner-bg {
+        text-align: center;
+        padding: 40px 0;
+    }
+    .about-banner.sumo-banner-bg .container {
+        align-items: center;
+    }
+    .about-banner.sumo-banner-bg .banner-text {
+        max-width: 100%;
+    }
+    .about-banner.sumo-banner-bg::after {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 240px;
+        right: auto;
+        margin-top: 25px;
+        background-size: cover;
+        background-position: center 35%;
+    }
+}
+
+/* ===================================================
+   FIX CONCEPTION : DEZOOM ET FOND BLANC POUR SCHÉMAS
+   =================================================== */
+.project-image img[src*="schemabatterie.png"],
+.project-image img[src*="sumografcet.png"] {
+    object-fit: contain !important; /* Dézoome pour afficher 100% du schéma */
+    background-color: #ffffff !important; /* Fond blanc pur pour la lisibilité */
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ===================================================
+   FIX INTÉGRATION : EFFET FLOU DE REPLI (IMG_0557)
+   =================================================== */
+.project-row .project-image:has(img[src*="IMG_0557.jpg"]) {
+    position: relative;
+    background-image: url('img/sumotest.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 320px;
+}
+
+/* Flou artistique d'arrière-plan pour masquer l'environnement de la table */
+.project-row .project-image:has(img[src*="sumotest.jpg"])::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    filter: blur(10px) brightness(0.5);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+/* L'image centrale nette qui ressort en gros plan */
+.project-row .project-image img[src*="sumotest.jpg"] {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Garde le robot entier au centre */
+    z-index: 2;
+}
