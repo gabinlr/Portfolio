@@ -1001,3 +1001,69 @@ a[href="robotholonome.html"].card-btn::after {
     object-fit: contain; /* Garde le robot entier au centre */
     z-index: 2;
 }
+
+/* ===================================================
+   BANNIÈRE DU PROJET RADIOGONIOMÉTRIE (PLEIN ÉCRAN)
+   =================================================== */
+.about-banner.radio-banner-bg {
+    position: relative;
+    background-color: #050d14; /* Fond de secours ultra-sombre */
+    overflow: hidden;
+    padding: 110px 0; /* Un peu plus de hauteur pour bien profiter de la photo */
+    text-align: left;
+}
+
+/* L'image d'antenne qui prend absolument tout l'espace en arrière-plan */
+.about-banner.radio-banner-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('img/antenne.jpg'); /* Pense à nommer ta photo ainsi dans le dossier img */
+    background-size: cover; /* Force la photo à couvrir 100% de la largeur et de la hauteur */
+    background-position: center 45%; /* Ajuste ce pourcentage pour centrer l'antenne verticalement */
+    filter: brightness(0.35); /* Assombrit la photo pour détacher le texte blanc proprement */
+    z-index: 1;
+}
+
+/* Le texte propulsé au premier plan */
+.about-banner.radio-banner-bg .container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.about-banner.radio-banner-bg .banner-text {
+    margin: 0;
+    padding: 0;
+    max-width: 60%; /* Aligne le texte sur la partie gauche */
+}
+
+/* Version Mobile et Tablette */
+@media (max-width: 768px) {
+    .about-banner.radio-banner-bg {
+        text-align: center;
+        padding: 60px 0;
+    }
+    .about-banner.radio-banner-bg .container {
+        align-items: center;
+    }
+    .about-banner.radio-banner-bg .banner-text {
+        max-width: 100%;
+    }
+}
+
+/* ===================================================
+   FIX RADIO : FOND BLANC ET DEZOOM POUR LES GRAPHES RF
+   =================================================== */
+.project-image img[src*="mmanagal.png"],
+.project-image img[src*="trvna.jpg"],
+.project-image img[src*="diagrayonnement.png"] {
+    object-fit: contain !important; /* Affiche 100% de l'image sans la couper */
+    background-color: #ffffff !important; /* Fond blanc pur pour la lisibilité des courbes */
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
