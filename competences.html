@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compétences | Gabin Leroy</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Style temporaire pour centrer le message de construction */
+        .construction-container {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .construction-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+    </style>
 </head>
 <body>
 
@@ -23,108 +45,15 @@
         </ul>
     </nav>
 
-    <header class="about-banner">
-        <h1>Mes Compétences</h1>
-        <p class="banner-text">Triez et cliquez sur une compétence pour en voir les détails.</p>
-    </header>
-
     <main class="container">
-        
-        <div class="filter-section">
-            <label for="skill-filter">Trier par :</label>
-            <select id="skill-filter" class="custom-select">
-                <option value="all">Toutes les compétences</option>
-                <option value="informatique">Informatique & Programmation</option>
-                <option value="geii">Compétences BUT GEII</option>
-            </select>
+        <div class="construction-container">
+            <div class="construction-icon">🚧</div>
+            <h1 style="font-size: 2.5em; color: var(--white); margin-bottom: 15px;">Page en cours de développement</h1>
+            <p style="color: var(--text-dim); max-width: 500px; font-size: 1.1em; line-height: 1.6;">
+                La cartographie détaillée de mes compétences techniques et universitaires est en cours de finalisation. Elle sera disponible très prochainement.
+            </p>
+            <a href="index.html" class="btn-more" style="margin-top: 30px; display: inline-block;">Retour à l'accueil</a>
         </div>
-
-        <div id="skills-board" class="skills-grid">
-
-            <div class="skill-card" data-label="informatique">
-                <h3>Programmation C++ & ROS</h3>
-                <div class="skill-details" style="display: none;">
-                    <p>Développement de systèmes embarqués et robotiques avancés.</p>
-                    <ul>
-                        <li>Création de nœuds ROS (Robot Operating System)</li>
-                        <li>Programmation orientée objet en C++</li>
-                        <li>Gestion de la navigation et des capteurs LiDAR</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="skill-card" data-label="informatique">
-                <h3>Python & IA</h3>
-                <div class="skill-details" style="display: none;">
-                    <p>Développement de scripts d'automatisation et de réseaux de neurones (ex: reconnaissance de main avec ORCA).</p>
-                </div>
-            </div>
-
-            <div class="geii-header" data-group="geii">
-            <h3 class="skill-title color-red">Compétence CONCEVOIR</h3>
-        </div>
-        <div class="skill-card" data-label="geii" data-color="red">
-            <h3>C.1 : J'identifie les fonctions demandées...</h3>
-            <div class="skill-details" style="display: none;"><p>Détails à rédiger...</p></div>
-        </div>
-        <div class="skill-card" data-label="geii" data-color="red">
-            <h3>C.2 : Je propose une solution technique...</h3>
-            <div class="skill-details" style="display: none;"><p>Détails à rédiger...</p></div>
-        </div>
-        <div class="skill-card" data-label="geii" data-color="red">
-            <h3>C.3 : J'affine une solution technique...</h3>
-            <div class="skill-details" style="display: none;"><p>Détails à rédiger...</p></div>
-        </div>
-        <div class="skill-card" data-label="geii" data-color="red">
-            <h3>C.4 : Je rédige un dossier de conception...</h3>
-            <div class="skill-details" style="display: none;"><p>Détails à rédiger...</p></div>
-        </div>
-
-        <div class="geii-header" data-group="geii">
-            <h3 class="skill-title color-orange">Compétence VERIFIER</h3>
-        </div>
-        <div class="skill-card" data-label="geii" data-color="orange">
-            <h3>V.1 : J'applique, j'élabore, je rédige une procédure d'essais</h3>
-            <div class="skill-details" style="display: none;"><p>Détails à rédiger...</p></div>
-        </div>
-        <div class="skill-card" data-label="geii" data-color="orange">
-            <h3>V.2 : J'identifie, je corrige les non-conformités...</h3>
-            <div class="skill-details" style="display: none;"><p>Détails à rédiger...</p></div>
-        </div>
-
-        <div class="geii-header" data-group="geii">
-            <h3 class="skill-title color-yellow">Compétence MAINTENIR</h3>
-        </div>
-        <div class="skill-card" data-label="geii" data-color="yellow">
-            <h3>M.1 : J'applique une opération de maintenance...</h3>
-            <div class="skill-details" style="display: none;"><p>Détails à rédiger...</p></div>
-        </div>
-        <div class="skill-card" data-label="geii" data-color="yellow">
-            <h3>M.2 : Je rédige la procédure de maintenance...</h3>
-            <div class="skill-details" style="display: none;"><p>Détails à rédiger...</p></div>
-        </div>
-
-        <div class="geii-header" data-group="geii">
-            <h3 class="skill-title color-green">Compétence IMPLANTER (ESE)</h3>
-        </div>
-        <div class="skill-card" data-label="geii" data-color="green">
-            <h3>I.3.1 : J'exécute la fabrication, l'installation...</h3>
-            <div class="skill-details" style="display: none;"><p>Détails à rédiger...</p></div>
-        </div>
-        <div class="skill-card" data-label="geii" data-color="green">
-            <h3>I.3.2 : Je prouve la conformité du système</h3>
-            <div class="skill-details" style="display: none;"><p>Détails à rédiger...</p></div>
-        </div>
-
-        <div id="skill-modal" class="modal-hidden">
-            <div class="modal-content">
-                <button id="close-modal" class="close-btn">&times;</button>
-                <h2 id="modal-title" class="accent-text">Titre</h2>
-                <div id="modal-body">
-                    </div>
-            </div>
-        </div>
-
     </main>
 
     <footer class="sticky-footer">
