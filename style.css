@@ -1066,4 +1066,81 @@ a[href="robotholonome.html"].card-btn::after {
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+
+    
+}
+
+/* ===================================================
+   NOUVELLE BANNIÈRE ACCUEIL IMMERSIVE AVEC PORTRAIT
+   =================================================== */
+.hero.home-banner-mesh {
+    position: relative;
+    background-color: #02060c; /* Couleur de secours[cite: 15] */
+    /* Intégration de ta photo modifiée en arrière-plan */
+    background-image: url('img/ppaccueil.jpg');
+    background-size: cover; /* Force l'image à couvrir toute la bannière */
+    background-position: center 35%; /* Centre verticalement sur ton regard et les arbres */
+    background-repeat: no-repeat;
+    padding: 160px 0; /* Donne une belle hauteur pour profiter du paysage */
+    text-align: left; /* Aligne le texte à gauche sur la zone de l'eau */
+    overflow: hidden;
+    border-bottom: 2px solid var(--block-bg);
+}
+
+/* Masque dégradé linéaire pour assombrir uniquement la zone sous le texte */
+.hero.home-banner-mesh::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Crée un voile noir opaque à gauche qui s'estompe vers la droite pour te laisser net */
+    background: linear-gradient(to right, rgba(2, 6, 12, 0.85) 35%, rgba(2, 6, 12, 0.4) 65%, rgba(2, 6, 12, 0.1) 100%);
+    z-index: 1;
+}
+
+/* Le texte propulsé au premier plan */
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.hero.home-banner-mesh h1 {
+    font-size: 4em !important;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0;
+    color: var(--white); /*[cite: 15] */
+    /* Ombre portée pour décoller le nom des reflets de l'eau */
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+}
+
+.hero.home-banner-mesh .subtitle {
+    margin-top: 15px;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #ffffff; /* Blanc pur pour une lisibilité parfaite sur le fond vert/eau */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    letter-spacing: 0.5px;
+}
+
+/* Configuration spécifique pour les téléphones et tablettes */
+@media (max-width: 768px) {
+    .hero.home-banner-mesh {
+        padding: 100px 0;
+        text-align: center; /* Recentre le texte sur mobile */
+        background-position: 65% center; /* Décale un poil la photo pour te garder au centre sur petit écran */
+    }
+    
+    /* Assombrissement global et uniforme sur mobile pour la lisibilité */
+    .hero.home-banner-mesh::before {
+        background: rgba(2, 6, 12, 0.65);
+    }
+    
+    .hero.home-banner-mesh h1 {
+        font-size: 2.8em !important;
+    }
+    
+    .hero.home-banner-mesh .subtitle {
+        font-size: 1.1em;
+        padding: 0 20px;
+    }
 }
