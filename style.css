@@ -1280,16 +1280,16 @@ a[href="robotholonome.html"].card-btn::after {
 @media (max-width: 768px) {
     /* 1. Correction de la bannière pour éviter le débordement */
     .trail-banner.photo-banner-bg {
-        height: auto !important; /* Laisse la bannière grandir avec le texte */
+        height: auto !important;
         padding: 120px 20px 60px 20px !important;
     }
     
     .trail-banner.photo-banner-bg .banner-text {
-        max-width: 100% !important; /* Utilise toute la largeur disponible */
+        max-width: 100% !important;
         padding: 0 !important;
     }
 
-    /* 2. On désactive l'effet de superposition pour empiler les éléments */
+    /* 2. On empile les éléments en colonne (Photo en haut, texte en bas) */
     .photo-section-v2 {
         height: auto !important;
         min-height: auto !important;
@@ -1298,30 +1298,42 @@ a[href="robotholonome.html"].card-btn::after {
     
     .photo-content-v2 {
         display: flex !important;
-        flex-direction: column !important; /* Force la photo en haut, le texte en bas */
+        flex-direction: column !important;
         height: auto !important;
     }
 
-    /* 3. On donne une hauteur correcte au carrousel photo sur mobile */
+    /* 3. On cadre parfaitement le carrousel ET les images à l'intérieur */
     .photo-content-v2 .carousel-slide {
         position: relative !important;
         width: 100% !important;
-        height: 45vh !important; /* Prend environ 45% de la hauteur de l'écran */
+        height: 350px !important; /* Hauteur adaptée pour mobile */
         min-height: 350px !important;
+        overflow: hidden !important;
     }
 
-    /* 4. On repousse le texte en dessous (on annule la position absolue) */
+    .photo-content-v2 .carousel-slide img {
+        width: 100% !important;
+        height: 100% !important; /* Force l'image à respecter la hauteur de 350px */
+        object-fit: cover !important; /* Remplit le cadre sans déformer la photo */
+        object-position: center !important; /* Centre l'image pour ne pas voir que le haut */
+    }
+
+    /* 4. On repousse et on force l'affichage du texte en dessous */
     .photo-text-v2 {
+        display: block !important; /* Sécurité : force l'affichage */
         position: relative !important; 
         top: auto !important;
         bottom: auto !important;
         left: auto !important;
         right: auto !important;
-        transform: none !important; /* Annule le centrage forcé par-dessus la photo */
+        transform: none !important;
         width: 100% !important;
         max-width: 100% !important;
         padding: 30px 20px 10px 20px !important;
-        text-align: left !important; /* Aligne le texte à gauche pour faciliter la lecture sur mobile */
+        text-align: left !important;
         background: transparent !important;
+        z-index: 10 !important; /* Assure que le texte passe au-dessus de tout le reste */
+        opacity: 1 !important; /* Empêche le texte d'être transparent */
+        visibility: visible !important;
     }
 }
