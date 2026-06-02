@@ -1278,7 +1278,7 @@ a[href="robotholonome.html"].card-btn::after {
    CORRECTIONS MOBILE : PAGE PHOTOGRAPHIE
    =================================================== */
 @media (max-width: 768px) {
-    /* 1. Correction de la bannière pour éviter le débordement */
+    /* 1. Bannière parfaite */
     .trail-banner.photo-banner-bg {
         height: auto !important;
         padding: 120px 20px 60px 20px !important;
@@ -1289,51 +1289,54 @@ a[href="robotholonome.html"].card-btn::after {
         padding: 0 !important;
     }
 
-    /* 2. On empile les éléments en colonne (Photo en haut, texte en bas) */
+    /* 2. On désactive le "overflow: hidden" qui cachait ton texte ! */
     .photo-section-v2 {
         height: auto !important;
         min-height: auto !important;
         padding-bottom: 20px !important;
+        overflow: visible !important; /* Libère le texte */
     }
     
     .photo-content-v2 {
         display: flex !important;
         flex-direction: column !important;
         height: auto !important;
+        overflow: visible !important; /* Libère le texte */
     }
 
-    /* 3. On cadre parfaitement le carrousel ET les images à l'intérieur */
+    /* 3. On affiche la photo ENTIÈRE sans rien couper */
     .photo-content-v2 .carousel-slide {
         position: relative !important;
         width: 100% !important;
-        height: 350px !important; /* Hauteur adaptée pour mobile */
-        min-height: 350px !important;
-        overflow: hidden !important;
+        height: 40vh !important; /* S'adapte à la hauteur du téléphone */
+        min-height: 250px !important;
     }
 
     .photo-content-v2 .carousel-slide img {
         width: 100% !important;
-        height: 100% !important; /* Force l'image à respecter la hauteur de 350px */
-        object-fit: cover !important; /* Remplit le cadre sans déformer la photo */
-        object-position: center !important; /* Centre l'image pour ne pas voir que le haut */
+        height: 100% !important;
+        object-fit: contain !important; /* Affiche 100% de l'image (non coupée) */
+        object-position: center !important;
     }
 
-    /* 4. On repousse et on force l'affichage du texte en dessous */
+    /* 4. Le texte forcé en dessous, lisible et visible */
     .photo-text-v2 {
-        display: block !important; /* Sécurité : force l'affichage */
+        display: block !important;
         position: relative !important; 
-        top: auto !important;
+        top: 0 !important;
         bottom: auto !important;
-        left: auto !important;
-        right: auto !important;
+        left: 0 !important;
+        right: 0 !important;
         transform: none !important;
         width: 100% !important;
         max-width: 100% !important;
-        padding: 30px 20px 10px 20px !important;
+        height: auto !important;
+        padding: 20px !important;
+        margin-top: 10px !important;
         text-align: left !important;
-        background: transparent !important;
-        z-index: 10 !important; /* Assure que le texte passe au-dessus de tout le reste */
-        opacity: 1 !important; /* Empêche le texte d'être transparent */
+        background: rgba(0, 0, 0, 0.4) !important; /* Fond léger pour bien lire le texte */
+        z-index: 999 !important;
+        opacity: 1 !important;
         visibility: visible !important;
     }
 }
