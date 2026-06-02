@@ -1222,7 +1222,18 @@ a[href="robotholonome.html"].card-btn::after {
     display: flex;
     flex-direction: column;
     gap: 25px;
+}
+
+/* On désactive l'ancien fond flou UNIQUEMENT pour la page Kart (schémas et nouveaux wrappers) 
+   pour réactiver le flou natif sur la page projets.html */
+.project-row .project-image:has(.blur-wrapper),
+.project-row .project-image:has(img[src*="schema"]) {
     background: transparent !important;
+}
+
+.project-row .project-image:has(.blur-wrapper)::before,
+.project-row .project-image:has(img[src*="schema"])::before {
+    display: none !important;
 }
 
 /* 3. Le fameux conteneur wrapper qui rend le flou possible */
