@@ -1273,3 +1273,55 @@ a[href="robotholonome.html"].card-btn::after {
     margin: 0 !important; /* Sécurité pour écraser d'anciens margins */
     z-index: 2;
 }
+
+/* ===================================================
+   CORRECTIONS MOBILE : PAGE PHOTOGRAPHIE
+   =================================================== */
+@media (max-width: 768px) {
+    /* 1. Correction de la bannière pour éviter le débordement */
+    .trail-banner.photo-banner-bg {
+        height: auto !important; /* Laisse la bannière grandir avec le texte */
+        padding: 120px 20px 60px 20px !important;
+    }
+    
+    .trail-banner.photo-banner-bg .banner-text {
+        max-width: 100% !important; /* Utilise toute la largeur disponible */
+        padding: 0 !important;
+    }
+
+    /* 2. On désactive l'effet de superposition pour empiler les éléments */
+    .photo-section-v2 {
+        height: auto !important;
+        min-height: auto !important;
+        padding-bottom: 20px !important;
+    }
+    
+    .photo-content-v2 {
+        display: flex !important;
+        flex-direction: column !important; /* Force la photo en haut, le texte en bas */
+        height: auto !important;
+    }
+
+    /* 3. On donne une hauteur correcte au carrousel photo sur mobile */
+    .photo-content-v2 .carousel-slide {
+        position: relative !important;
+        width: 100% !important;
+        height: 45vh !important; /* Prend environ 45% de la hauteur de l'écran */
+        min-height: 350px !important;
+    }
+
+    /* 4. On repousse le texte en dessous (on annule la position absolue) */
+    .photo-text-v2 {
+        position: relative !important; 
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important; /* Annule le centrage forcé par-dessus la photo */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 30px 20px 10px 20px !important;
+        text-align: left !important; /* Aligne le texte à gauche pour faciliter la lecture sur mobile */
+        background: transparent !important;
+    }
+}
