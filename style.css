@@ -1144,3 +1144,121 @@ a[href="robotholonome.html"].card-btn::after {
         padding: 0 20px;
     }
 }
+
+/* ===================================================
+   BANNIÈRE ACCUEIL KART : SPLIT-SCREEN & POSITION OK
+   =================================================== */
+.about-banner.kart-banner-bg {
+    position: relative;
+    background-color: #02060c;
+    overflow: hidden;
+    padding: 120px 0;
+    text-align: left;
+}
+
+/* Côté gauche : La télécommande redressée, zoomée et calée à droite */
+.about-banner.kart-banner-bg::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0; width: 50%;
+    background-image: url('img/telecommande.jpg');
+    background-repeat: no-repeat;
+    background-position: center center; 
+    /* Rotation 90° + Fort Zoom + Décalage vers la droite (X) pour couvrir le vide vert */
+    transform: rotate(90deg) scale(2.0) translate(2%, -7%);
+    background-size: contain;
+    filter: brightness(0.25);
+    z-index: 1;
+}
+
+/* Côté droit : Le Kart miniature */
+.about-banner.kart-banner-bg::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; width: 50%;
+    background-image: url('img/kartahelice.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.4);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    border-left: 2px solid var(--accent);
+    z-index: 2;
+}
+
+.about-banner.kart-banner-bg .container {
+    position: relative;
+    z-index: 10;
+}
+
+.about-banner.kart-banner-bg .banner-text {
+    margin: 0; padding: 0;
+    max-width: 45%;
+}
+
+@media (max-width: 768px) {
+    .about-banner.kart-banner-bg { text-align: center; padding: 60px 0; }
+    .about-banner.kart-banner-bg::before { width: 100%; filter: brightness(0.35); transform: rotate(90deg) scale(1.3); }
+    .about-banner.kart-banner-bg::after { display: none; }
+    .about-banner.kart-banner-bg .banner-text { max-width: 100%; }
+}
+
+/* ===================================================
+   FIX DES IMAGES : FONDS BLANCS & VRAI FLOU ISOLÉ
+   =================================================== */
+
+/* 1. Fond blanc pur pour les schémas électriques ISIS (Inchangé) */
+.project-image img[src*="schemakart.png"],
+.project-image img[src*="schemapuissance.png"] {
+    object-fit: contain !important;
+    background-color: #ffffff !important;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* 2. Organisation de la colonne d'images (gère l'espacement) */
+.project-row .project-image {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background: transparent !important;
+}
+
+/* 3. Le fameux conteneur wrapper qui rend le flou possible */
+.blur-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 300px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* 4. On injecte l'image de fond dans le conteneur selon l'image qu'il contient */
+.blur-wrapper:has(img[src*="kartpcb.png"])::before { background-image: url('img/kartpcb.png'); }
+.blur-wrapper:has(img[src*="kartmoteur.png"])::before { background-image: url('img/kartmoteur.png'); }
+.blur-wrapper:has(img[src*="kartled.png"])::before { background-image: url('img/kartled.png'); }
+
+/* 5. Le VRAI filtre de flou appliqué uniquement sur le fond de la boîte */
+.blur-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px) brightness(0.4); /* Le flou tamisé tant attendu */
+    transform: scale(1.15); /* Étire le fond pour cacher les bords nets du flou */
+    z-index: 1;
+}
+
+/* 6. L'image de premier plan posée par-dessus, parfaitement nette */
+.blur-wrapper img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    background: transparent !important;
+    margin: 0 !important; /* Sécurité pour écraser d'anciens margins */
+    z-index: 2;
+}
