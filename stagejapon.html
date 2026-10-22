@@ -13,7 +13,7 @@
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="about.html">À propos de moi</a></li>
-            <li><a href="stagejapon.html">Expérience Professionnelle</a></li>
+            <li><a href="stagejapon.html">Expérience professionnelle</a></li>
             <li><a href="projets.html">Projets</a></li>
             <li><a href="competences.html">Compétences</a></li>
             <li><a href="index.html#hobbies">Hobbies</a></li>
@@ -31,7 +31,7 @@
     <main class="container">
         
         <section class="section-card">
-            <h2>Environnement et Contexte de Recherche</h2>
+            <h2>Environnement et contexte de recherche</h2>
             <p>J'ai intégré le laboratoire du <strong>Pr. Togo</strong> à l'UEC de Chōfu, spécialisé dans l'étude de la biomécanique et du contrôle moteur humain. Mon travail sur le projet ORCA a répondu à un double enjeu décrit par mon maître de stage :</p>
             
             <div style="margin: 20px 0; padding-left: 15px; border-left: 4px solid var(--accent);">
@@ -53,19 +53,19 @@
 
             <div class="docs-container" style="margin-top: 30px;">
                 <a href="docs/Technical_Report_ORCA_LEROY_Gabin.pdf" target="_blank" class="btn-doc">
-                    📄 Télécharger le Rapport Technique (Anglais)
+                    📄 Télécharger le rapport technique (Anglais)
                 </a>
             </div>
         </section>
 
-        <h2 class="category-title">Vulgarisation Technique (Démarche Ingénieur)</h2>
+        <h2 class="category-title">Vulgarisation technique du projet</h2>
 
         <section class="project-row">
             <div class="project-image">
                 <img src="img/rlandmark.jpg" alt="Suivi de la main via MediaPipe">
             </div>
             <div class="project-text">
-                <h3>1. Acquisition Visuelle et Suivi IA</h3>
+                <h3>1. Acquisition visuelle et suivi IA</h3>
                 <p><strong>Contrainte :</strong> Capter les mouvements de l'opérateur de manière fluide sans l'équiper de capteurs physiques contraignants. Sur le plan technique, la difficulté majeure a été de réussir à faire reconnaître et exploiter correctement la caméra 3D sur le Raspberry Pi 5 face à des problèmes de compatibilité.</p>
                 <p><strong>Solution :</strong> J'ai dû appréhender et utiliser la bibliothèque spécifique <strong>DepthAI</strong> pour configurer la caméra spatiale OAK-D Lite. Elle gère le traitement d'image en interne et envoie un flux optimisé au framework <strong>MediaPipe</strong>, qui extrait instantanément un squelette virtuel en 3D composé de 21 repères spatiaux.</p>
                 <p><strong>Résultat :</strong> Un suivi visuel fluide à haute fréquence qui fonctionne de manière autonome sur la carte, sans avoir besoin d'un ordinateur externe puissant.</p>
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="project-text">
-                <h3>2. Modélisation Cinématique Vectorielle</h3>
+                <h3>2. Modélisation cinématique vectorielle</h3>
                 <p><strong>Contrainte :</strong> Il fallait transformer les simples coordonnées de pixels fournies par la caméra en angles géométriques précis, applicables à des articulations mécaniques.</p>
                 <p><strong>Solution :</strong> J'ai développé une analyse géométrique par calcul vectoriel. À partir des repères spatiaux de l'IA, le script génère des vecteurs pour chaque phalange. L'angle exact de chaque articulation est ensuite calculé mathématiquement (via le produit scalaire).</p>
                 <p><strong>Résultat :</strong> Un modèle mathématique capable de quantifier en temps réel les flexions, les écartements latéraux et l'opposition du pouce humain.</p>
@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="project-text">
-                <h3>3. Traitement du Signal et Normalisation</h3>
+                <h3>3. Traitement du signal et normalisation</h3>
                 <p><strong>Contrainte :</strong> Les servomoteurs ne comprennent pas les "degrés géométriques", ils ont besoin d'un signal électrique précis. De plus, les micro-tremblements de l'IA faisaient vibrer les moteurs en permanence, risquant de les casser.</p>
                 <p><strong>Solution :</strong> J'ai d'abord implémenté un filtre informatique (zone morte de 3°) qui bloque les tremblements parasites. Ensuite, j'ai mené des tests empiriques sur chaque doigt pour déterminer ses limites mécaniques, ce qui m'a permis de convertir proportionnellement les angles théoriques en signaux de commande réels (PWM).</p>
                 <p><strong>Résultat :</strong> Une traduction fiable des mouvements et une stabilisation totale des actionneurs qui protège la structure du robot.</p>
@@ -127,7 +127,7 @@
                 <img src="img/pullsystem.jpg" alt="Système de poulies antagonistes">
             </div>
             <div class="project-text">
-                <h3>4. Actionnement Mécanique et Énergie</h3>
+                <h3>4. Actionnement mécanique et énergie</h3>
                 <p><strong>Contrainte :</strong> Piloter 16 moteurs en simultané demandait trop d'énergie. L'appel de courant massif au démarrage coupait instantanément la sécurité de la batterie.</p>
                 <p><strong>Solution :</strong> Comme illustré sur le schéma technique, les doigts sont actionnés par un système de câbles antagonistes liés aux moteurs (un câble se tend pendant que l'autre se relâche). Pour éviter les coupures de batterie, j'ai programmé dans le microcontrôleur un délai invisible de 2 millisecondes entre l'activation de chaque moteur.</p>
                 <p><strong>Résultat :</strong> Les pics de consommation électrique sont lissés, ce qui permet au système de fonctionner de manière autonome sur batterie de manière sécurisée.</p>
@@ -142,13 +142,13 @@
                 </video>
             </div>
             <div class="project-text">
-                <h3>Validation Expérimentale</h3>
+                <h3>Validation expérimentale</h3>
                 <p>Les tests de différentes postures (main ouverte, poing fermé, signe de victoire, pince avec le pouce) ont validé la réactivité du système de téléopération. Le temps de latence entre le mouvement humain et la réplication mécanique est imperceptible, ce qui valide l'efficacité du code exécuté sur le système embarqué.</p>
             </div>
         </section>
 
         <section class="section-card">
-            <h2>Bilan de l'Expérience</h2>
+            <h2>Bilan de l'expérience</h2>
             <p>Ce stage a consolidé mes compétences techniques (Python, C++, traitement du signal) mais a surtout été une épreuve d'autonomie. Face à des problèmes imprévus de compatibilité de versions logicielles sur la caméra 3D, j'ai dû faire preuve de patience et de persévérance pour trouver des solutions par moi-même.</p>
             <p>Vivre et travailler seul durant deux mois et demi à l'étranger m'a demandé une grande rigueur d'organisation, tant dans la gestion de mon emploi du temps au laboratoire que dans ma réactivité professionnelle avec les chercheurs. J'ai également pu m'adapter à un environnement académique de recherche, tout en communiquant au quotidien en anglais.</p>
             
