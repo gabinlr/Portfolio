@@ -35,12 +35,12 @@
     <main class="container">
         
         <section class="section-card">
-            <h2 style="color: var(--accent);">Présentation du Projet</h2>
+            <h2 style="color: var(--accent);">Présentation du projet</h2>
             <p>Dans le cadre du BUT GEII, ce projet consistait à développer un récepteur radio complet capable de capter et de localiser des balises d'émission portatives. L'objectif principal était d'obtenir une directivité maximale pour guider l'opérateur vers la source du signal lors d'une chasse au renard (chasse à la balise). Au-delà de cet exercice, cette technologie trouve son utilité principale dans des contextes d'urgence, notamment pour localiser rapidement des balises de détresse lors d'opérations de secours.</p>
             <p>Avec mon binôme, nous avons pris en charge l'intégralité de l'étude : depuis les calculs d'adaptation d'impédance haute fréquence jusqu'au protocole de validation finale sur appareils de mesure.</p>
         </section>
 
-        <h2 class="category-title">Développement du Projet</h2>
+        <h2 class="category-title">Développement du projet</h2>
 
         <section class="project-row">
             <div class="project-image">
@@ -48,16 +48,16 @@
                 <img src="img/usimmics.png" alt="Simulation de la valeur inductive d'adaptation sur uSimmics">
             </div>
             <div class="project-text">
-                <h3>Phase de Conception</h3>
+                <h3>Phase de conception</h3>
                 <p style="color: var(--text-dim); margin-bottom: 25px;">Cette étape formalise la modelisation et les simulations des étages de réception haute fréquence pour s'aligner sur les exigences du cahier des charges.</p>
                 
                 <div style="margin-bottom: 25px; border-left: 3px solid var(--accent); padding-left: 15px;">
-                    <h4 style="margin: 0 0 5px 0; color: var(--white);">EXIG_DIRECTIVITE & EXIG_OUVERTURE</h4>
+                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Directivité et angle d'ouverture</h4>
                     <p style="margin: 0; font-size: 0.95em;">L'antenne devait posséder un gain élevé pour capter les signaux faibles, associé à un angle d'ouverture horizontal inférieur à 70°. À l'aide de <strong>MMANA-GAL</strong>, nous avons simulé le diagramme de rayonnement polaire en plan d'Azimut (2D) pour vérifier comment l'antenne capte le signal selon son orientation, ce qui nous a permis de récupérer la valeur de son impédance brute.</p>
                 </div>
 
                 <div style="border-left: 3px solid var(--accent); padding-left: 15px;">
-                    <h4 style="margin: 0 0 5px 0; color: var(--white);">EXIG_IMPEDANCE & EXIG_FREQUENCE</h4>
+                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Adaptation d'impédance à une fréquence</h4>
                     <p style="margin: 0; font-size: 0.95em;">Le système devait être centré sur la fréquence de 144 MHz avec un coefficient de réflexion (S11) inférieur à -10 dB. En utilisant l'impédance de la simulation précédente, nous avons utilisé <strong>uSimmics</strong> pour dimensionner les composants théoriques d'adaptation. Cela sert à caler l'impédance vers les 50 Ohms pour améliorer le gain à cette fréquence et ainsi mieux détecter les balises.</p>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <img src="img/gnuradio.jpg" alt="Code et blocs de traitement sous GNU Radio">
             </div>
             <div class="project-text">
-                <h3>Phase de Fabrication et Intégration</h3>
+                <h3>Phase de fabrication et intégration</h3>
                 <p>Pour l'assemblage mécanique de l'antenne et l'intégration des circuits, nous avons suivi les étapes de la Liste de Contrôle de Fabrication (LCF) imposée.</p>
                 <p>Une fois la structure construite, l'impédance réelle obtenue était proche de nos simulations MMANA-GAL mais ne permettait pas d'atteindre les 50 Ohms. Nous avons donc utilisé l'outil de calcul de <strong>uSimmics</strong> pour concevoir une bobine magnétique adaptée (nombre de spires et espacement). J'ai fabriqué cette bobine en cuivre à la main et ajusté ses spires pour ramener l'impédance du circuit vers la valeur cible de 50 Ohms.</p>
                 <p>En parallèle, nous avons développé une application sous <strong>GNU Radio</strong> pour traiter le signal en temps réel. L'interface intègre des curseurs de contrôle du gain et un sélecteur permettant de modifier légèrement la fréquence (par exemple 144,1 MHz) pour différencier chaque balise lors de la chasse. Un signal sonore indique l'amplitude reçue pour avertir l'opérateur dès que l'antenne pointe vers la cible.</p>
@@ -82,36 +82,36 @@
                 <img src="img/diagrayonnement.png" alt="Tracé expérimental du diagramme de rayonnement de l'antenne">
             </div>
             <div class="project-text">
-                <h3>Phase de Vérification</h3>
+                <h3>Phase de vérification</h3>
                 <p style="color: var(--text-dim); margin-bottom: 25px;">Cette phase valide la conformité réelle des performances matérielles via des essais physiques face aux exigences initiales.</p>
                 
                 <div style="margin-bottom: 25px; border-left: 3px solid var(--accent); padding-left: 15px;">
-                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Validation Radiofréquence (TRVNA)</h4>
-                    <p style="margin: 0; font-size: 0.95em;">Le contrôle du récepteur a été réalisé à l'aide d'un Analyseur de Réseau Vectoriel exploité via le logiciel <strong>TRVNA</strong>. Les relevés de coefficient de réflexion (S11) ont validé le travail de notre bobine d'adaptation faite main, montrant une courbe de réponse qui converge au plus près de l'impédance de référence de 50 Ohms sur la fréquence centrale requise.</p>
+                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Validation radiofréquence (TRVNA)</h4>
+                    <p style="margin: 0; font-size: 0.95em;">Le contrôle du récepteur a été réalisé à l'aide d'un analyseur de réseau vectoriel exploité via le logiciel <strong>TRVNA</strong>. Les relevés de coefficient de réflexion (S11) ont validé le travail de notre bobine d'adaptation faite main, montrant une courbe de réponse qui converge au plus près de l'impédance de référence de 50 Ohms sur la fréquence centrale requise.</p>
                 </div>
 
                 <div style="border-left: 3px solid var(--accent); padding-left: 15px;">
-                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Validation Expérimentale de la Directivité</h4>
+                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Validation expérimentale de la directivité</h4>
                     <p style="margin: 0; font-size: 0.95em;">Les tests de directivité sur le terrain ont permis de cartographier le diagramme de rayonnement réel de l'antenne. Le tracé obtenu concorde avec les modélisations de MMANA-GAL, affichant une chute franche de l'amplitude du signal dès que l'axe de l'antenne s'écarte de la cible, ce qui assure une localisation fiable des balises lors du challenge.</p>
                 </div>
             </div>
         </section>
 
         <section class="section-card" style="margin-top: 60px;">
-            <h2>Bilan du Projet</h2>
+            <h2>Bilan du projet</h2>
             
             <p style="margin-bottom: 20px;">
                 Ce projet a mis en valeur les compétences majeures de ma formation en génie électrique. J'ai validé mon aptitude à <strong>identifier une exigence issue du cahier des charges et à y associer une solution technique pertinente</strong> en concevant le système d'adaptation d'impédance de l'antenne. J'ai également <strong>contribué à la rédaction du dossier technique</strong> pour formaliser nos résultats théoriques, avant de prendre en charge la <strong>vérification de la conformité du système</strong> en traduisant les exigences en un protocole de tests réels.
             </p>
             
             <p style="margin-bottom: 35px;">
-                Sur le plan pratique, j'ai développé une maîtrise concrète de l'<strong>Analyse de réseaux RF</strong> en effectuant les étalonnages et en interprétant les abaques de Smith sur un analyseur vectoriel (VNA). J'ai utilisé des outils spécialisés comme <strong>uSimmics et MMANA-GAL</strong> pour simuler les lignes électriques et modéliser des diagrammes de rayonnement.
+                Sur le plan pratique, j'ai développé une maîtrise concrète de l'<strong>analyse de réseaux RF</strong> en effectuant les étalonnages et en interprétant les abaques de Smith sur un analyseur vectoriel (VNA). J'ai utilisé des outils spécialisés comme <strong>uSimmics et MMANA-GAL</strong> pour simuler les lignes électriques et modéliser des diagrammes de rayonnement.
             </p>
             
-            <h3 class="subcategory-title">Livrables Techniques du Projet</h3>
+            <h3 class="subcategory-title">Livrables techniques du projet</h3>
             <div class="docs-container">
-                <a href="docs/radio-ddc.pdf" target="_blank" class="btn-doc">Dossier de Conception (DDC)</a>
-                <a href="docs/radio-ddv.pdf" target="_blank" class="btn-doc">Dossier de Validation (DDV)</a>
+                <a href="docs/radio-ddc.pdf" target="_blank" class="btn-doc">Dossier de conception (DDC)</a>
+                <a href="docs/radio-ddv.pdf" target="_blank" class="btn-doc">Dossier de validation (DDV)</a>
             </div>
         </section>
 
@@ -123,7 +123,7 @@
             <div class="contact-links">
                 <span class="contact-mail"><strong>lgabin2006@gmail.com</strong></span>
                 <span class="separator">|</span>
-                <a href="https://www.linkedin.com/in/gabin-leroy-820791335" target="_blank">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/gabin-leroy5" target="_blank">LinkedIn</a>
             </div>
         </div>
     </footer>
