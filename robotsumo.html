@@ -47,16 +47,16 @@
                 <img src="img/sumografcet.png" alt="Extrait de la boucle principale du Grafcet de comportement">
             </div>
             <div class="project-text">
-                <h3>Phase de Conception</h3>
+                <h3>Phase de conception</h3>
                 <p style="color: var(--text-dim); margin-bottom: 25px;">Cette étape formalise les choix techniques et l'architecture logique pour répondre aux exigences du cahier des charges.</p>
                 
                 <div style="margin-bottom: 25px; border-left: 3px solid var(--accent); padding-left: 15px;">
-                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Gestion de l'Énergie (EXIG_AUTONOMIE & EXIG_SECUR_BATT)</h4>
+                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Autonomie et sécurité de la batterie</h4>
                     <p style="margin: 0; font-size: 0.95em;">Le système devait assurer une autonomie minimale de 15 minutes de combat avec une batterie LiPo 2S. Nous avons dimensionné l'accumulateur en sélectionnant une capacité optimale respectant nos contraintes de budget. Pour protéger la batterie contre les décharges profondes, j'ai intégré un pont diviseur de tension analogique chargé de renvoyer l'état de la charge au microcontrôleur pour couper la puissance sous le seuil critique de 6,7 V.</p>
                 </div>
 
                 <div style="border-left: 3px solid var(--accent); padding-left: 15px;">
-                    <h4 style="margin: 0 0 5px 0; color: var(--white);">EXIG_COMPORTEMENT</h4>
+                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Comportement du robot</h4>
                     <p style="margin: 0; font-size: 0.95em;">Pour structurer les décisions autonomes du robot, j'ai développé la logique séquentielle sous forme de Grafcet. La détection en continu de la ligne blanche par les capteurs de sol est définie comme une priorité absolue afin d'interrompre immédiatement la traque de l'adversaire et de déclencher une trajectoire d'évitement d'urgence.</p>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                 <img src="img/sumotest.jpg" alt="Assemblage électronique et câblage du robot">
             </div>
             <div class="project-text">
-                <h3>Phase d'Intégration Matérielle</h3>
+                <h3>Phase d'intégration matérielle</h3>
                 <p>Cette étape a consisté à assembler physiquement la structure et à lier les composants au programme. J'ai pris en charge la fixation mécanique des capteurs et des moteurs sur le châssis, ainsi que l'intégralité de leur câblage vers la carte d'extension (shield) connectée à l'Arduino.</p>
                 <p>En parallèle de l'assemblage, j'ai ajusté le code de l'algorithme pour calibrer précisément les variables de détection et configurer les seuils d'alerte de tension de la batterie, assurant ainsi la bonne communication entre le matériel et le programme.</p>
             </div>
@@ -85,23 +85,23 @@
                 </video>
             </div>
             <div class="project-text">
-                <h3>Phase de Vérification</h3>
+                <h3>Phase de vérification</h3>
                 <p style="color: var(--text-dim); margin-bottom: 25px;">Les essais permettent de valider la conformité du robot réel face aux exigences initiales.</p>
                 
                 <div style="margin-bottom: 25px; border-left: 3px solid var(--accent); padding-left: 15px;">
-                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Validation Énergétique et Sécurité</h4>
+                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Validation énergétique et sécurité</h4>
                     <p style="margin: 0; font-size: 0.95em;">Comme l'illustre la première vidéo, l'essai de sécurité batterie a été validé en simulant une baisse de charge via une alimentation de laboratoire : les moteurs se coupent instantanément au seuil exact de 6,7 V. L'autonomie globale a été testée par mesures indirectes, confirmant une capacité de décharge conforme à la durée demandée pour un tournoi.</p>
                 </div>
 
                 <div style="border-left: 3px solid var(--accent); padding-left: 15px;">
-                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Validation du Comportement</h4>
+                    <h4 style="margin: 0 0 5px 0; color: var(--white);">Validation du comportement</h4>
                     <p style="margin: 0; font-size: 0.95em;">Les essais face à un adversaire ont confirmé la validité de notre logique de Grafcet. Le robot respecte la temporisation réglementaire après le signal de la télécommande, enchaîne ses phases de balayage et enclenche instantanément sa marche arrière de sauvegarde à l'approche de la ligne blanche.</p>
                 </div>
             </div>
         </section>
 
         <section class="section-card" style="margin-top: 60px;">
-            <h2>Bilan du Projet</h2>
+            <h2>Bilan du projet</h2>
             
             <p style="margin-bottom: 20px;">
                 Ce projet a été l'opportunité d'appliquer les compétences majeures de ma formation. J'ai validé ma capacité à <strong>identifier une exigence client et à y associer une solution technique pertinente</strong> lors de l'étude fonctionnelle du système. J'ai également mis en œuvre une démarche de <strong>prototypage rapide</strong> pour tester le fonctionnement du bloc de sécurité coupant l'alimentation sous les 6,7 V, avant de <strong>contribuer à la rédaction du dossier technique</strong> formalisant notre conception. Enfin, j'ai pris en charge la <strong>vérification de la conformité du système</strong> en appliquant des protocoles d'essais méthodiques face au cahier des charges.
@@ -111,11 +111,11 @@
                 Côté technique, j'ai consolidé ma pratique du <strong>codage embarqué</strong> pour programmer et débugger la logique séquentielle du Grafcet sur le framework Arduino en langage C/C++. J'ai également utilisé le logiciel KiCad pour <strong>concevoir le schéma électrique</strong>, en y plaçant les différents composants du pont diviseur avec leurs valeurs exactes et en réalisant toutes leurs interconnexions. Ce travail s'est complété par une phase d'<strong>intégration matérielle</strong>, où j'ai géré la fixation mécanique des capteurs sur la structure ainsi que l'ensemble de leur câblage vers le shield.
             </p>
             
-            <h3 class="subcategory-title">Livrables Techniques du Projet</h3>
+            <h3 class="subcategory-title">Livrables techniques du projet</h3>
             <div class="docs-container">
-                <a href="docs/sumo-ddc.pdf" target="_blank" class="btn-doc">Dossier de Conception (DDC)</a>
-                <a href="docs/sumo-ddf.pdf" target="_blank" class="btn-doc">Dossier de Fabrication (DDF)</a>
-                <a href="docs/sumo-ddv.pdf" target="_blank" class="btn-doc">Dossier de Validation (DDV)</a>
+                <a href="docs/sumo-ddc.pdf" target="_blank" class="btn-doc">Dossier de conception (DDC)</a>
+                <a href="docs/sumo-ddf.pdf" target="_blank" class="btn-doc">Dossier de fabrication (DDF)</a>
+                <a href="docs/sumo-ddv.pdf" target="_blank" class="btn-doc">Dossier de validation (DDV)</a>
             </div>
         </section>
 
